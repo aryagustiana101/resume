@@ -1,0 +1,164 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+
+\hypersetup{breaklinks=true,%
+colorlinks=true,%
+linkcolor=cyan,%
+urlcolor=MyDarkBlue}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Start Document     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{resume_header}
+    \name{M Arya Anggara Gustiana}
+    \contact{aryagustiana101@gmail.com \hspace{1cm}(+62) 81320199090\hspace{1cm}linkedin.com/in/aryagustiana\hspace{1cm}github.com/aryagustiana101}
+\end{resume_header}
+
+\begin{resume_section}{About}
+
+    \begin{nospacetabbing}
+        \textbf{Technical Skills}  \= Javascript, Node.js, React.js, SQL, PHP, Laravel, CodeIgniter, HTML, CSS,\\*
+        \textbf{} \>Dart, Kotlin, C\#, Visual Basic, .NET Framework\\*
+        \textbf{Languages} \> Indonesia Native; Fluent in English\\*
+        \textbf{Interests} \> Software Engineering, Web Development, Mobile Development\\*
+    \end{nospacetabbing}
+
+\end{resume_section}
+
+\begin{resume_section}{Experience}
+
+    \begin{resume_employer}{Agate International Internship}{Backend Programmer}{}{June - August 2022}
+        \item Combining Node.js, Express.js, Socket.io, and MongoDB to build a server app for handling multiplayer game events, and REST API to manage game data in the Levio Party project.
+        \item Optimizing the server app by implementing Redis adapter to Socket.io and caching for the REST API.
+        \item Collaborate with team members to accelerate and develop project on track in a limited time period.
+    \end{resume_employer}
+
+    \begin{resume_employer}{Berani Digital ID Internship}{Web Developer}{}{April - July 2022}
+        \item Developing talent platform database app from scratch by giving requests to use Laravel web framework.
+        \item Mixing Laravel with Livewire, and Bootstrap 5 to creates an interactive features for users to use.
+        \item Expanding the platform by implementing a credit system for talent project payment and RSUs module for another and further talent payment method.
+    \end{resume_employer}
+
+    \begin{resume_employer}{Kamar Pelajar Internship}{Backend Programmer}{}{April - August 2022}
+        \item Manage, maintain and develop an existing web app. Involve in developing Pandu's product and Kamar's product.
+        \item Work around the Laravel ecosystem to develop easy-to-use and secure features by the given specify requirement.
+        \item Collaborate with other team members to discuss and squash problems. And executing solutions for the problems seamlessly.
+    \end{resume_employer}
+
+    \begin{resume_employer}{Yada Ekidanta Internship}{Fullstack Programmer}{}{April - June 2022}
+        \item Contribute to Point of Sale web project and Bajaga Store web e-commerce.
+        \item Using the Laravel framework and Bootstrap 5 library to create features by given requirements. Manipulating elements to do certain things using AJAX.
+        \item Team up with team members to integrate a safe and secure payment gateway and other features.
+    \end{resume_employer}
+
+\end{resume_section}
+
+\begin{resume_section}{Competition and Award}
+
+    \begin{resume_subsection}[(October 2021)]{Lomba Kompetensi Siswa Tingkat Nasional}
+        Achieved Medallion for Excellence in IT Software Solution for Business field y building apps that can solve given problems.
+        Desktop app case required to build like an online store app with .NET Framework C\#, for mobile app problem given is to make cloud photo app by using only native android (Kotlin/Java).
+        The web app challenge is to provide API for the laundry management app with JWT Authentication in ASP.NET Core C\#.
+    \end{resume_subsection}
+
+    \begin{resume_subsection}[(August 2021)]{Lomba Kompetensi Siswa Tingkat Provinsi Jawa Barat}
+        Winning first place in IT Software Solution for Business field by building apps that can solve given problems.
+        Desktop app case required to build restaurant management system with .NET Framework Visual Basic.
+        The mobile app challenge is to do it in full native without library help, and the case is to create an app that runs CRUD through API also with secure user authentication.
+    \end{resume_subsection}
+
+\end{resume_section}
+
+\begin{resume_section}{Education}
+    \begin{resume_subsection}[Kabupaten Garut, Jawa Barat (2019 - Present)]{SMK Negeri 1 Garut}
+        \begin{subitems}
+            \item Sistem Informatika Jaringan dan Aplikasi
+        \end{subitems}
+    \end{resume_subsection}
+\end{resume_section}
+
+\end{document}
